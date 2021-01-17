@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Classified Homepage {% endblock %}
+
+{% block content %}
+
+<div class="container" style="padding-top: 4em">
+    {% if 'username' not in session %}
+    <h2><a href="/register">Register</a> or <a href="/login">Login</a> to gain access.</h2>
+    {% endif %}
+
+    {% if 'username' in session %}
+    <h2><a href="/users/{user.username}">User Homepage</a> or <a href="/logout">Logout</a></h2>
+    {% endif %}
+</div>
+
+
+
+
+
+{% endblock %}

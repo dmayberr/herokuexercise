@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if username not in session %}
+<h1>The page you requested cannot be found...</h1>
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.creativebloq.com%2Fweb-design%2Fbest-404-pages-812505&psig=AOvVaw0l5fC116cqz2vonk944B-A&ust=1610409952242000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDJs-DKku4CFQAAAAAdAAAAABAD"
+    alt="pixar">
+<br>
+<h1>...or your security clearance is not high enough!</h1>
+<img src="https://www.elegantthemes.com/blog/wp-content/uploads/2019/12/401-error-wordpress-featured-image.jpg"
+    alt="noclearance">
+
+{% endif %}
+
+{% endblock %}
