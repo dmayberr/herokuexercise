@@ -3,15 +3,18 @@ from models import User, db, connect_db, Feedback
 from forms import NewUserForm, LoginForm, DeleteForm, FeedbackForm
 from flask_bcrypt import Bcrypt
 from werkzeug.exceptions import Unauthorized
+import os
 
 bcrypt = Bcrypt()
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = "whatever"
+app.config['SECRET_KEY'] = app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'whatever')
+print(app.config['SECRET_KEY'])
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///UserDB'  
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_ECHO'] = False
+app.config['SQLALCHEMY_ECHO'] = True
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
 db.init_app(app)
 connect_db(app)
